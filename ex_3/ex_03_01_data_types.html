@@ -16,10 +16,12 @@
     <p id="concata"></p>
     <p id="list"></p>
     <p id="bool"></p>
+    <p id="bool2"></p>
+    <p id="bool3"></p>
 
     <script> //javascript starts here //
-        var x = 7;
-        var y = 4;
+        var x = 5;
+        var y = 2;
         document.getElementById("add").innerHTML = x + x; //"add" id will return the calculation from script to the html document where "add" is used within <p> tag
         document.getElementById("sub").innerHTML = y - y;
         document.getElementById("mult1").innerHTML = x * y;
@@ -33,19 +35,23 @@
         z--;
         document.getElementById("decree").innerHTML = z;
 
-        var s1 = "John";
-        var s2 = "Smith";
+        var s1 = "Courtney";
+        var s2 = "Osmek";
         document.getElementById("concata").innerHTML = s1 +" "+ s2;
 
         var list = "<ul>";
         list += "<li>Apples</li>";
         list += "<li>Oranges</li>";
         list += "<li>Milk</li>";
+        list += "<li>Cheese</li>";
         list += "<li>Eggs</li>"
         list += "</ul>";
         document.getElementById("list").innerHTML = list; // returns all values in the list
 
-        document.getElementById("bool").innerHTML = 6 > 9;
+        document.getElementById("bool").innerHTML = 10 > 9;
+        document.getElementById("bool2").innerHTML = 9 > 7;
+        document.getElementById("bool3").innerHTML = 10 != 10;
+        
     </script>
 
 </body>

@@ -11,21 +11,21 @@
 <script>
     var num = "";
     
-    for (var i = 3; i < 20; i++) { // change to a different number
+    for (var i = 5; i <= 17; i++) { // change to a different number
         num += "The number is " + i + "<br>";
     }
     document.getElementById("demo").innerHTML = num;
     
     var num_brk = "";
     
-    for (var z = 4; z < 15; z++) {
-        if(z===13) {break;}
+    for (var z = 4; z < 18; z++) {
+        if(z===15) {break;}
         num_brk += "The number is " + z + " lets loop again" + "<br>";
     }
     document.getElementById("demo1").innerHTML = num_brk;
     
     
-    var cars = ["Tesla", "Volvo", "BMW", "Ford", "Fiat", "Audi"];
+    var cars = ["Tesla", "Volvo", "BMW", "Ford", "Fiat", "Audi", "Chevy"];
     
     var carnames = "";
     
