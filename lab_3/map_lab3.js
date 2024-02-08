@@ -39,7 +39,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon7 = L.icon({
-    iconUrl: 'images/icon102.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
