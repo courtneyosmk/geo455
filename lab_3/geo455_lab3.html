@@ -4,89 +4,93 @@
        <title>geo455_lab3</title>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-
-        xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-
-        XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: "whitesmoke";
-                font-family: "Noto Sans", sans-serif;
-                color: #3d3d3d;
-            }
-            #title {
-                position: center;
-                margin-top: 0;
-                top: 10px;
-                left: 50px;
-                font-size: 2em;
-                font-family: "Lora", serif;
-                letter-spacing: .04em;
-                padding: 10px 15px;
-                background-color: rgba(255, 255, 255, 0.5);
-                border: 1px solid grey;
-                border-radius: 3px;
-                z-index: 800;
-            }
-            #description h2 {
-                font-family: "Lora", serif;
-                letter-spacing: .04em;
-            }
-            #map {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-            }
-            #description {
-                position:left;
-                bottom: 50px;
-                left: 10px;
-                width: 280px;
-                padding: 0px 15px;
-                background-color: rgba(255, 255, 255, 0.7);
-                border: 1px solid grey;
-                border-radius: 3px;
-                z-index: 800;
-            }
-            #description p {
-                font-size: .9em;
-                line-height: 1.5em;
-            }
-            #description a {
-                color: #005daa;
-                text-decoration: none;
-            }
-            #description a:hover {
-                text-decoration: underline;
-            }
-            footer{ 
-                position: bottom;
-                margin-top: 0;
-                top: 10px;
-                left: 50px;
-                font-size: 2em;
-                font-family: "Lora", serif;
-                letter-spacing: .04em;
-                padding: 10px 15px;
-                background-color: rgba(255, 255, 255, 0.5);
-                border: 1px solid grey;
-                border-radius: 3px;
-                z-index: 800;
-            }
-        </style>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+ <style type="text/css">
+    #container {
+        height: relative;
+        width: relative;
+        margin-top: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #container #map {
+       height: 860px;
+     }
+    #container #title {
+        font-size: 3em;
+        font-family: font-family: 'Protest Riot', sans-serif;
+        letter-spacing: .04em;
+        padding: 10px 15px;
+        height: 50px;
+        background-color: rgb(175, 225, 175);
+        border: 1px solid gray;
+        border-radius: 3px;
+        text-align:center;
+    }
+
+    #container #description {
+        position: static;
+        top: 100px;
+        left: 50px;
+        width: 300px;
+        float:left;
+        height:838px;
+        bottom: 25px;
+        padding: 10px 15px;
+        font-size: 1em;
+        font-family; font-family: 'Protest Riot', sans-serif;
+        letter-spacing: 0.1em;
+        background-color: rgb(175, 225, 175,0.2);
+        border: 1px solid gray;
+        border-radius: 3px;
+        z-index: 800;
+    }
+    #container #footer {
+     font-family:font-family: 'Protest Riot', sans-serif;
+     font-size: 1em;
+     letter-spacing: .01em;
+     height: 25px;
+     background-color: rgb(175, 225, 175);
+     border: 1px solid grey;
+     text-align: center;
+     padding-top: 3px;
+     font-style: italic;
+     }
+     body {
+         background-color: "whitesmoke";
+      }
+</style>
     </head>
-    <body>
-        <h1 id="title">Lab 3</h1>
-        <div id="map"></div>
-        <div id="description">
-            <h2>About this assignment</h2>
-            <p>This is the final result of the <a href="https://leafletjs.com/examples/quick-start/" target="_blank">Leaflet Quick Start Guide</a>. The map demonstrates Leaflet basics, such as setting up a Leaflet map, adding markers, and popups.</p>
-            <p>The placement and styling of the title and description boxes is done using CSS. Check out the source code of this page to see how.</p>
-           <p>Map authored by XXX</p>
-        </div>
-        <script src="map.js"></script>
+  <body>
+    <div id="container">
+      <div id="title">Lab 3: Spring Break Trip 2023</div >
+       <div id="description">
+         <h2>Moab, Utah</h2>
+            <p>Over spring break last year me and my Dad visited Arches National Park. These are some of the Arches we saw: </p>
+            <ol type="1">
+                <li>Devils Garden</li>
+                <li>Double O Arch</li>    
+                <li>Landscape Arch</li>
+                <li>Corona Arch</li>
+                <li>Fishers Tower</li> 
+                <li>Fiery Furnace</li> 
+                <li>Double Arch</li>  
+                <li>Sand Dune Arch</li> 
+                <li>Skyline Arch</li> 
+                <li>Navajo Arch</li>
+                <li>Partition Arch</li> 
+           </ol>
+        <p><img style="width: relative; height: 230px;" src="MoabView.jpg" alt="Moab"></p>
+                <p><i><sup>Photo Credits: Courtney Osmek (2023)</sup></i></p>
+      </div>
+    <div id="map"></div>
+       <script src="map_lab3.js"></script>
+      <div id="footer">Map developed by Courtney Osmek</div>
+       </div>
     </body>
 </html>
