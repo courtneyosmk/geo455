@@ -9,57 +9,57 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1
 }).addTo(mymap);
     var myIcon1 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon2 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon3 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon4 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon5 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon6 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon7 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon102.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon8 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon9 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon10 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
 });var myIcon11 = L.icon({
-    iconUrl: 'images/icon_640.png',
+    iconUrl: 'images/icon19.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
     popupAnchor: [15,10],
