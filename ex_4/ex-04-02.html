@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Earth poles</title>
+        <title>
+        Earth poles </title>
     </head>
     <body>
-        <h2>Earth Poles Viewer</h2>
+        <h2 onmouseover="style.color='lightblue'" onmouseout="style.color='black'"> Earth Poles Viewer (Double Click)</h2>
         <img id="myImage" src="images/north.svg"><br>
-        <input type="button" value="North Pole" id="north"> <!-- event listener -->
-        <input type="button" value="South Pole" id="south"> <!-- event listener -->
+        <input type="button" value="North Pole Map" id="north" style:color=blue> <!-- event listener -->
+        <input type="button" value="South Pole Map" id="south"> <!-- event listener -->
         <script>
             function showNorth() {              //event listeners function
                 document
@@ -18,13 +19,14 @@
                 document
                     .getElementById("myImage")
                     .src = "images/south.svg";
+                     
             }
             document
                 .getElementById("north")
-                .addEventListener("click", showNorth);  //fetching the function
+                .addEventListener("dblclick", showNorth);  //fetching the function
             document
                 .getElementById("south")
-                .addEventListener("click", showSouth);  //fetching the function
+                .addEventListener("dblclick", showSouth);  //fetching the function
         </script>
     </body>
 </html>

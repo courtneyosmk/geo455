@@ -6,16 +6,16 @@
     
     
     <h3>What can JavaScript do?</h3>
-    <button id="myBtn1">Click me!!</button>
+    <button id="myBtn1">Double click me!!</button>
     <p id="demo1"></p>
     
-    
+   
     
     <h3>What's the date today?</h3>
     <button id="myBtn2">Display current date/time</button>
     <p id="demo2"></p>
     
-    <h3 onmouseover="style.color='red'" onmouseout="style.color='black'">
+    <h3 onmouseover="style.color='blue'" onmouseout="style.color='black'">
         Mouse over this text</h3>
 
     
@@ -23,12 +23,12 @@
         method to add many events on the same button.</h3>
     <button id="myBtn3">Try it!!</button>
     <p id="demo3"></p>
-
+    
 
 
 <script>
     
-    document.getElementById("myBtn1").addEventListener("click", hello);
+    document.getElementById("myBtn1").addEventListener("dblclick", hello);
     
     function hello() {
         document.getElementById("demo1").innerHTML = 
@@ -61,8 +61,6 @@
     function myThirdFunction() {
         document.getElementById("demo3").innerHTML += "Moused out!<br>";
     }
-    
-    
 </script>
 
 </body>

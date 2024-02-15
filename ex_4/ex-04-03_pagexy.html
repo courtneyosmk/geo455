@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Event object</title>
+        <title>Latitude and Longitude</title>
     </head>
     <body>
-        <p id="position"></p>
+        <p id="latlong"></p>
         <script>
-            var page_coord = document.getElementById("position");
+            var page_coord = document.getElementById("latlong");
             document.addEventListener("mousemove", function(e) {
-                page_coord.innerHTML = e.pageX + " " + e.pageY;
+                page_coord.innerHTML = e.pageX + " " + "lat" + "," + " " + e.pageY + " " + "long";
             });
         </script>
     </body>
