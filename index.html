@@ -79,7 +79,7 @@
                 letter-spacing: .04em;
                 padding: 10px 15px;
                 background-color: rgba(174, 234, 204,0.6);
-                border: 1px solid grey;
+                border: 2px solid grey;
                 border-radius: 20px;
             }
 
@@ -98,12 +98,32 @@
                 margin: 4px;
                 padding: 2px;
             }
+            #gallery {
+              margin: 5px;
+              border: 1px solid #ccc;
+              float: left;
+              width: 180px;
+            }
+
+            #gallery:hover {
+              border: 1px solid #777;
+            }
+
+            #gallery img {
+              width: 100%;
+              height: auto;
+            }
+
+            #desc {
+              padding: 15px;
+              text-align: center;
+            }
         </style>
     </head>
     <body>
         <div id="container">
             <div id = "header"><h3 style="color:darkgreen";>GEO 455: Webmapping (Spring 2024)</h3>
-              <p><em>Dept. of Geography and Earth Science, University of Wisconsin - La Crosse</em></p>
+              <p><em>Dept. of Geography and Environmental Science, University of Wisconsin - La Crosse</em></p>
             
                 
             </div>
@@ -154,12 +174,40 @@
      
                     <h3 style="border-bottom-style: double">About me</h3>
                     <p>
-                        <em>My name is Courtney and I am a Geography major with an emphasis in GIS and a minor in Environmental Studies. I am taking this course because my internship this summer requires a lot of web mapping skills. I am really looking forward to learning more about coding in this course because I have not done it before.This semester I am envolved in an independent research study on Food Gardens in La Crosse county and I am looking forward to making a web map for this study using my skills I have learned from this course.</em> <br>
+                        <em>My name is Courtney and I am a Geography major with an emphasis in GIS and a minor in Environmental Studies. I am taking this course because my internship this summer requires a lot of web mapping skills. I am really looking forward to learning more about coding in this course because I have not done it before. This semester I am envolved in an independent research study on Food Gardens in La Crosse county and I am looking forward to making a web map for this study using my skills I have learned from this course. Some images of my favorite projects I have created throughout the years are inserted below.</em> <br>
                     
                         
                     </p>
-           </div>
+                
+                    <div id="gallery">
+                      <a target="_blank" href="BigMarine.png">
+                        <img src="BigMarine.png" alt="Big Marine Map" width="600" height="400">
+                      </a>
+                      <div class="desc">This was a map I created in my GIS 2 course. It shows the aquatic vegetation in Big Marine Lake in Washington County, Minnesota. </div>
+                    </div>
 
+                    <div id="gallery">
+                      <a target="_blank" href="Obama.png">
+                        <img src="Obama.png" alt="Obama Map" width="600" height="400">
+                      </a>
+                      <div class="desc">This was a map I created in my Geovisualization course. It shows the presedential election votes for Obama in 2012.</div>
+                    </div>
+
+                    <div id="gallery">
+                      <a target="_blank" href="Exports.png">
+                        <img src="Exports.png" alt="TExports of the U.S. Map" width="600" height="400">
+                      </a>
+                      <div class="desc">This was a map I created in my Geovisualization course. It shows the top 20 international export by the U.S. in 2008.</div>
+                    </div>
+
+                    <div id="gallery">
+                      <a target="_blank" href="Hawaii.png">
+                        <img src="Hawaii.png" alt="Hawaii MAp" width="600" height="400">
+                      </a>
+                      <div class="desc">This is a map I created in my GIS 2 course. It is a map of the land cover of Maui, Hawaii.  </div>
+                    </div>
+                               </div>
+             
         </div>
     </body>
 </html>
