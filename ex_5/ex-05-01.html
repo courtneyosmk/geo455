@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading GeoJSON from object</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+
+let map = L.map("map").setView([43, -105], 4);
+
+L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attribution/">CartoDB</a>',
+    subdomains: "abcd",
+    maxZoom: 19
+}).addTo(map);
+
+let states = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"Name": "North Dakota"},
+      "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+              [[-104.05, 48.99], [-97.22,  48.98], 
+              [-96.58,  45.94], [-104.03, 45.94], 
+              [-104.05, 48.99]]
+          ]
+      }
+    }, 
+    {
+      "type": "Feature",
+      "properties": {"Name": "Colorado"},
+      "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+              [[-109.05, 41.00], [-102.06, 40.99], 
+              [-102.03, 36.99], [-109.04, 36.99], 
+              [-109.05, 41.00]]
+          ] 
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Name": "New Mexico"},
+      "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+              [[
+              -109.03608275141265,
+              31.319947766898025
+            ],
+            [
+              -108.25433867827364,
+              31.378584071220544
+            ],
+            [
+              -108.17867211156597,
+              31.794455699824226
+            ],
+            [
+              -106.55556026252067,
+              31.77839341785956
+            ],
+            [
+              -106.63623364512561,
+              31.96277523114776
+            ],
+            [
+              -103.01719370121741,
+              32.01337955165516
+            ],
+            [
+              -103.02855914611654,
+              36.985512779568964
+            ],
+            [
+              -109.04629058994068,
+              36.97133546391831
+            ]]
+         ]
+     }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Name": "Utah"},
+      "geometry": {
+          "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -114.03589308645115,
+              41.993688551178025
+            ],
+            [
+              -114.03557118628578,
+              37.01269274406641
+            ],
+            [
+              -109.05338310988884,
+              36.995050077815506
+            ],
+            [
+              -109.04569644339932,
+              41.005487585639486
+            ],
+            [
+              -111.04146288421373,
+              40.991437583890246
+            ],
+            [
+              -111.03264878917992,
+              41.98388593971504
+            ],
+            [
+              -114.03589308645115,
+              41.993688551178025
+            ]
+          ]
+        ],
+      }
+    }
+  ]
+};
+
+L.geoJSON(states).addTo(map);
+
+    </script>
+</body>
+</html>
+
