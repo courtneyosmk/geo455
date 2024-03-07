@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nearest Point</title>
+    <title>Finding Midpoint</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <!-- Load Leaflet from CDN -->
        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
@@ -27,15 +27,24 @@
     
 // Bounds   long/lat  - feel free to change
 var bounds = [-91.24767126466358, 43.82383654812337, -91.20748926566223, 43.80826537588756];
-    
+        
 // Initialize map
 var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
         
 L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
     {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
-).addTo(mymap);
+).addTo(mymap);        
+        
+var point1 = turf.point([-91.226944, 43.812778]);
+var point2 = turf.point([-91.236111, 43.815278]);
 
+var midpoint = turf.midpoint(point1, point2);  
+        
+// Convert to geoJSON to plot on leaflet map
+L.geoJSON(point1).addTo(mymap);     
+L.geoJSON(point2).addTo(mymap);     
+L.geoJSON(midpoint).addTo(mymap);
         
 
         

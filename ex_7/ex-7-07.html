@@ -19,6 +19,7 @@
             height: 100%;
             width: 100%;
         }
+        .uwlbuffer {color:black;}
     </style>
 </head>
 <body>
@@ -37,17 +38,17 @@ L.tileLayer(
 ).addTo(mymap);
 
 var uwl = turf.point([-91.23060328354482, 43.81660129282059]);
-var uwlbuffer = turf.buffer(uwl, 50, {units: 'miles'});  
+var uwlbuffer = turf.buffer(uwl, 100, {units: 'miles'});  
 L.geoJSON(uwl).addTo(mymap);
 L.geoJSON(uwlbuffer).addTo(mymap);
         
-var uwec = turf.point([-91.48429454797873, 44.82312510110985]);
-var uwecbuffer = turf.buffer(uwec, 50, {units: 'miles'});  
-L.geoJSON(uwecbuffer).addTo(mymap);
-        L.geoJSON(uwec).addTo(mymap);
+var mad = turf.point([-89.4008000,43.0722000]);
+var madbuffer = turf.buffer(mad, 100, {units: 'miles'},);  
+L.geoJSON(madbuffer).addTo(mymap);
+        L.geoJSON(mad).addTo(mymap);
         
         
-var intersection = turf.intersect(uwlbuffer, uwecbuffer);
+var intersection = turf.intersect(uwlbuffer, madbuffer);
 L.geoJSON(intersection).addTo(mymap);
 
         

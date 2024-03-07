@@ -26,7 +26,7 @@
     <script>
     
 // Bounds   long/lat
-var bounds = [-125.06804948750015, 48.423227753628424, -80.67187497957025, 25.34283898116232];
+var bounds = [-155.06804948750015, 40.423227753628424, -40.67187497957025, 8.34283898116232];
     
 // Initialize map
 var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
@@ -37,7 +37,7 @@ L.tileLayer(
 ).addTo(mymap);
 
 // Add random points
-var points = turf.randomPoint(20, {bbox: bounds});
+var points = turf.randomPoint(45, {bbox: bounds});
         
 // Convert to geoJSON to plot on leaflet map
 L.geoJSON(points).addTo(mymap);

@@ -26,7 +26,7 @@
     <script>
     
 // Bounds   long/lat
-var bounds = [-125.06804948750015, 48.423227753628424, -80.67187497957025, 25.34283898116232];
+var bounds = [-120.06804948750015, 50.423227753628424, -80.67187497957025, 25.34283898116232];
     
 // Initialize map
 var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
@@ -43,12 +43,21 @@ var marker =
     .addTo(mymap)
     .openPopup();
     
+var marker1 = 
+    L.marker([65.42, -130.068], {draggable: true})
+    .bindPopup("This marker is draggable! Move it around...")
+    .addTo(mymap)
+    .openPopup();        
+        
 // Print current position
 marker.addEventListener("drag", function() {
      console.log(marker._latlng);
 }); 
 
-
+marker.addEventListener("drag", function() {
+     console.log(marker1._latlng);
+}); 
+        
     </script>
 </body>
 </html>

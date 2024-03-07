@@ -37,8 +37,8 @@ L.tileLayer(
 ).addTo(mymap);
 
         
-var taco = L.icon({
-    iconUrl: 'img/taco.png',
+var coffee = L.icon({
+    iconUrl: 'img/coffee.png',
     iconSize: [30, 30],
     iconAnchor: [0, 0],
 });
@@ -53,17 +53,15 @@ var me = L.icon({
 // Add random points
 var targetPoint = turf.point([-91.23176163704308, 43.81594921072007], {"marker-color": "#0F0"});
 var points = turf.featureCollection([
-    turf.point([-91.23936969689734, 43.81680581566446]),
-    turf.point([-91.23932097132852, 43.817786255647775]),
-    turf.point([ -91.22887096966582, 43.81261677078325]),
-    turf.point([ -91.23939169368956, 43.814414585537016,])
+    turf.point([-91.226944, 43.812778]),
+    turf.point([ -91.236111, 43.815278,])
 ]);
 
 var nearest = turf.nearestPoint(targetPoint, points);
 
 L.geoJSON(points, {
           pointToLayer: function(feature,latlng){
-      return L.marker(latlng,{icon: taco});
+      return L.marker(latlng,{icon: coffee});
     }}).addTo(mymap);    
         
 L.geoJSON(targetPoint, {
