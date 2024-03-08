@@ -2,9 +2,126 @@
 <html>
     <head>
        <title>geo455_lab6</title>
-    </head>
-         <body bgcolor="#EDDD9E">
-       <h1 align="center">Lab 6</h1>
-       
-     </body>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
+        </script>
+        <script src="data.js"></script>
+        <script src="new_test.js"></script>
+
+         <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: whitesmoke;
+            font-family: "Noto Sans", sans-serif;
+            color: #3d3d3d;
+        }
+        #title {
+            position: fixed;
+            margin-top: 0;
+            top: 10px;
+            left: 50px;
+            font-size: 2em;
+            font-family: "Lora", serif;
+            letter-spacing: .04em;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid grey;
+            border-radius: 3px;
+            z-index: 800;
+        }
+        #map1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #map2 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #mapSwitch {
+            position: fixed;
+            top: 100px;
+            left: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .legend {
+            padding: 6px 8px;
+            line-height: 18px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="title">Lab 6: Population Density in London (2011)</h1>
+
+    <div id="mapSwitch">
+        <input type="radio" id="map1Radio" name="mapSelection" value="map1" checked>
+        <label for="map1Radio">Population Density Map</label>
+        <input type="radio" id="map2Radio" name="mapSelection" value="map2">
+        <label for="map2Radio">Partial English Density Map</label>
+    </div>
+
+   
+    <div id="map1"></div>
+    <div id="map2"></div>
+
+    <script src="new_test.js"></script>
+   
+        <script>
+        // Function to switch between maps
+        function switchMap() {
+            var selectedMap = document.querySelector('input[name="mapSelection"]:checked').value;
+
+            // Hide both maps
+            document.getElementById('map1').style.display = 'none';
+            document.getElementById('map2').style.display = 'none';
+
+            // Show the selected map
+            document.getElementById(selectedMap).style.display = 'block';
+       // Show the selected map
+
+            document.getElementById(selectedMap).style.display = 'block';
+
+            if (selectedMap === 'map1'){
+
+                document.getElementById("title").textContent = "Lab 6: Population Density In London (2011)";
+
+            } else if (selectedMap === 'map2'){
+
+                document.getElementById ("title").textContent= "Lab 6: Partially English Speaking Households In London (2011)";
+
+            }
+
+            } 
+            
+
+        // Add event listener for radio button change
+        document.querySelectorAll('input[name="mapSelection"]').forEach(function(radio) {
+            radio.addEventListener('change', switchMap);
+        });
+    </script>
+   
+</body>
 </html>
