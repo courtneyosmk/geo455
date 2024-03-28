@@ -7,14 +7,22 @@
 
       <script type = "text/javascript" language = "javascript">
          $(document).ready(function() {
-            $("p:first").css('background-color', 'yellow');
+            $("p:first").css('background-color', 'lightblue');
          });
-     
+        $(document).ready(function() {//open console and copy-paste the the code below//
+                $("ul").text();
+            });          
         $(document).ready(function() {
             $("button").click(function(){
-                $("ul").css('color', 'red');
+                $("ul").css('color', 'lightblue');
             });
          });
+          
+         var design = {
+              color: "Blue",
+              background: "lightgrey",
+              border: "6px solid black"
+          }
       </script>
    </head>
 	
@@ -26,8 +34,10 @@
            <li> CSS </li>
            <li> JavaScript </li>
            <li> jQuery </li>
+           <li> Leaflet </li>
        </ul>
-       
+
+
        <p id="test">Check console to get the text for list</p> 
        <button>Change list text color</button>
     </body>

@@ -3,14 +3,14 @@
       <title>Ex- 6-2: CSS manipulation</title>
        <style>
            .charac {
-               float: left;
+               float: center;
            }
            img {
-              width: 200px; 
-               height: 200px; 
+              width: 300px; 
+               height: 300px; 
            }
            .styleclass {
-               border: 5px solid cadetblue;
+               border: 8px double darkblue;
                
            }
       </style>
@@ -19,20 +19,35 @@
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
       </script>
 
-     <script>
+      <script>
           $(document).ready(function() {
-              $("button").click(function(){
-                  $("img").addClass("styleclass"); //change to toggleClass
+              $("button.addClass").click(function(){
+                  $("img").addClass("styleclass"); //try change to toggleClass
+                  
+              });
+         });
+              
+          // Add removeClass()
+         
+          $(document).ready(function() {
+              $("button.removeClass").click(function(){
+                  $("img").removeClass("styleclass"); 
+                  
+              });
+         });
+           // Now here Add a toggleClass
+          
+           $(document).ready(function() {
+              $("button.toggleClass").click(function(){
+                  $("img").toggleClass("styleclass"); 
                   
               });
           });
-          // Add removeClass()
-
       </script>
 
 	
    <body>
-       <h1> Adventures of Tintin </h1>
+       <h1> Adventures of Tintin </h1> 
        <p> Main Characters </p>
        <div class= "charac">
            <img src="img/tintin-milou.jpg">
@@ -41,7 +56,13 @@
            <img src="img/Thomson_&_Thompson.png">
        </div>
        
-       <button>Try addClass()</button>
-       <!-- add button for remove class -->
+       <button class= addClass>Add Border()</button>
+        <!-- add button for remove class -->
+       <button class= removeClass>Remove Border()</button>
+       <!-- add button for toggle class -->
+       <button class= toggleClass>Toggle Border()</button>
+  
+       
    </body>
 </html>
+
