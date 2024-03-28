@@ -1,10 +1,124 @@
 <!DOCTYPE html>
-<html>
-    <head>
-       <title>geo455_lab9</title>
-    </head>
-         <body bgcolor="#EDDD9E">
-       <h1 align="center">Lab 9</h1>
-       
-     </body>
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Migration Layer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://lycheelin.github.io/leaflet.migrationLayer/src/src.js"></script>
+    <script src='dane_data.js'></script>
+    <script src='city.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+        
+    <style>
+        
+    #title {
+    font-size: 3em;
+    font-family: font-family: 'Protest Riot', sans-serif;
+    letter-spacing: .04em;
+    padding: 10px 15px;
+    height: 50px;
+    background-color: lavender;
+    border: 1px solid gray;
+    border-radius: 3px;
+    text-align:center;
+    }
+        
+    #description {
+        position: static;
+        top: 100px;
+        left: 10px;
+        width: 300px;
+        float:left;
+        height:890px;
+        bottom: 25px;
+        padding: 10px 15px;
+        font-size: 1em;
+        font-family; font-family: 'Protest Riot', sans-serif;
+        letter-spacing: 0.1em;
+        background-color: #fbfaff;
+        border: 1px solid gray;
+        border-radius: 3px;
+        z-index: 800;
+    }
+        
+    #body{
+        margin: 0;
+        padding: 0;
+    } 
+    
+    #map{
+        height: 910px;
+        
+    }
+    #event{
+        position: absolute;
+        top: 50px;
+        right: 900px;
+        height: 100px;
+        width: 400px;
+        z-index: 10000;
+    }
+    .btn{
+        position: relative;
+        top: 100px;
+        border-color:black;
+        border-width: 2px;
+        border-radius: 5px;
+        background-color:#e2eafc;
+   }
+</style>
+</head>
+
+<body>
+    <div id="title">Lab 9: Commute Flow Map to Dane County</div >
+     <div id="description">
+         <h2>Description</h2>
+     <p>This map shows the flow of commute from counties near Dane County into Dane County.  The dataset used is from American Community Surveys ‘Journey to work’. The lab uses 2011-2015 5-Year American Community Survey Commuting Flows. The counties flowing into Dane County are: </p> 
+            <ol type="1">
+                <li>Cook County
+                   <li> Lake County</li>
+                   <li> Winnebago County</li>
+                   <li> Adams County</li>
+                   <li> Columbia County</li>
+                   <li> Dodge County</li>
+                   <li> Fond du Lac County</li>
+                    <li>Grant County</li>
+                   <li> Green County</li>
+                   <li> Green Lake County</li>
+                    <li>Iowa County</li>
+                    <li>Jefferson County</li>
+                   <li> Juneau County</li>
+                   <li> Lafayette County</li>
+                   <li> Marquette County</li>
+                   <li> Milwaukee County</li>
+                    <li>Outagamie County</li>
+                   <li> Ozaukee County</li>
+                   <li> Richland County</li>
+                    <li>Rock County</li>
+                    <li>Sauk County</li>
+                   <li> Walworth County</li>
+                   <li> Washington County</li>
+                   <li> Waukesha County</li>
+                   <li> Winnebago County</li>
+                   <li> Wood County</li>
+           </ol></div>
+    
+     <div id="map"></div>
+   
+    <div id='event'>
+        <input type="button" value="hide" class="btn" onclick="hide()">
+        <input type="button" value="show" class="btn" onclick="show()">
+        <input type="button" value="pause" class="btn" onclick="pause()">
+        <input type="button" value="play" class="btn" onclick="play()">
+        
+    </div>
+    
+        <script src="map_lab9.js"></script>
+</body>
+
 </html>
