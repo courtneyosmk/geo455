@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>geo455_final</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.min.css" integrity="sha512-1TnOnmQ91QV8X1/dj6UMPhRM35nAnBanyvXPFU7uqV3xg+++cGxIBR6Bh5D7F8wVrwNm8eAfBWNYX/4yce4CiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.min.js" integrity="sha512-erNK0f3PSiL/SdS247MoOAK95iJCmfueXT4WG5eyRBR1eOgcE0bI5y2fSEVTQfAS53pTqL/VIQpJXnG99U1n+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+        <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' rel='stylesheet' />
+        <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+        <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+        
+        <script src="leaflet-heat.js"></script>
+        <script src="newfood.js"></script> 
+        <script src="busstops.js"></script>
+        <script src="vehicle.js"></script>
+        <script src="pantry.js"></script>
+
+         <style>
+              body {
+                 margin: 0;
+                 padding: 0;
+                 background-color: "whitesmoke";
+                   font-family: "Fredoka", sans-serif;
+                 color: #3d3d3d;
+              }
+              #title {
+                position: fixed;
+                margin-top: 0;
+                top: 10px;
+                left: 50px;
+                font-size: 2em;
+                 font-family: "Fredoka", sans-serif;
+                letter-spacing: .04em;
+                padding: 10px 15px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border: 3px solid black;
+                border-radius: 3px;
+                z-index: 800;
+            }
+            #map {
+                position:absolute; 
+                top:0; 
+                bottom:0; 
+                width:100%; 
+                height: 100%; 
+            }
+            p {
+                font-family: "Fredoka", "sans-serif";  
+                font-size: 1.25em;
+            }
+            #description {
+                position: fixed;
+                bottom: 20px;
+                left: 10px;
+                width: 280px;
+                padding: 0px 15px;
+                background-color: rgba(255, 255, 255, 0.7);
+                border: 1px solid black;
+                border-radius: 3px;
+                z-index: 800;
+            }
+              #description p {
+                font-size: .8em;
+                line-height: 1.5em;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id='title'>Food Gardens in La Crosse County</div>
+        <div id='map'></div>
+         <div id="description">
+         <h2>About the Map</h2>
+            <p>Food insecurity rates are rising in the United States, with accessibility becoming a growing concern. In La Crosse county alone, figures suggest 3,000 children are food insecure. This interactive map shows the community food gardens in La Crosse County as well as the MTU bus stop locations that citizens can use to get to these food gardens. It also has a layer showing the percentage of households in each census tract with no vehicle. This map offers valuable insights into transportation accessibility and a socioeconomic factor influencing food access in our community. Whether you're interested in accessing fresh produce, planning community outreach initiatives, or advocating for food equity, this map serves as a great tool for promoting healthy food access and encouraging community resilience in La Crosse County. </p>
+          <p>Map authored by Courtney Osmek</p>
+      </div>
+            <script src="map_final.js"></script>
+    </body>
+</html>
