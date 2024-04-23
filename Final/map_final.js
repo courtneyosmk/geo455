@@ -217,8 +217,8 @@ var legend = L.control.layers(overlayMaps, baseLayers,{collapsed: false}).addTo(
 
 //Make only one layer show//
 
-newfood.addtoMyMap (myMap)
-mymap.removeLayer (pantry)
+newfood.addTo(mymap); 
+mymap.removeLayer(pantry);
 /*mymap.removeLayer (vehicle)
 mymap.removeLayer (busstops)
 */

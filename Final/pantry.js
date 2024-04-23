@@ -12,7 +12,7 @@ var pantry = {
       "id": 18,
       "geometry": {
         "type": "Point",
-        "coordinates": [1376744.3074069135, 1228459.324310571]
+        "coordinates": [-91.248191237100002, 43.836179093380998]
       },
       "properties": {
         "OBJECTID": 18,
@@ -34,7 +34,7 @@ var pantry = {
       "id": 19,
       "geometry": {
         "type": "Point",
-        "coordinates": [1376426.2972161621, 1220684.618403323]
+        "coordinates": [-91.249412731849006, 43.814953348513001]
       },
       "properties": {
         "OBJECTID": 19,
@@ -56,7 +56,7 @@ var pantry = {
       "id": 21,
       "geometry": {
         "type": "Point",
-        "coordinates": [1376036.2710933276, 1217973.2678549066]
+        "coordinates": [-91.250194009043994, 43.807374725029]
       },
       "properties": {
         "OBJECTID": 21,
@@ -78,7 +78,7 @@ var pantry = {
       "id": 22,
       "geometry": {
         "type": "Point",
-        "coordinates": [1377588.5107709952, 1219357.0810321569]
+        "coordinates": [-91.244731019830994, 43.811614668840001]
       },
       "properties": {
         "OBJECTID": 22,
@@ -100,7 +100,7 @@ var pantry = {
       "id": 26,
       "geometry": {
         "type": "Point",
-        "coordinates": [1378945.2866007462, 1232282.7382516563]
+        "coordinates": [-91.239732136596004, 43.846646875071997]
       },
       "properties": {
         "OBJECTID": 26,
@@ -122,7 +122,7 @@ var pantry = {
       "id": 27,
       "geometry": {
         "type": "Point",
-        "coordinates": [1381665.6476298273, 1221394.3807633221]
+        "coordinates": [-91.229097596941997, 43.817042034964999]
       },
       "properties": {
         "OBJECTID": 27,
@@ -144,7 +144,7 @@ var pantry = {
       "id": 30,
       "geometry": {
         "type": "Point",
-        "coordinates": [1378841.4869395792, 1256062.8032242358]
+        "coordinates": [-91.242058030907998, 43.911999987397003]
       },
       "properties": {
         "OBJECTID": 30,
@@ -166,7 +166,7 @@ var pantry = {
       "id": 31,
       "geometry": {
         "type": "Point",
-        "coordinates": [1384493.3719612472, 1248959.1602793187]
+        "coordinates": [-91.220209472853, 43.892740900644]
       },
       "properties": {
         "OBJECTID": 31,
@@ -188,7 +188,7 @@ var pantry = {
       "id": 32,
       "geometry": {
         "type": "Point",
-        "coordinates": [1381944.7641975805, 1245505.7091809884]
+        "coordinates": [-91.229993873848002, 43.883780005334003]
       },
       "properties": {
         "OBJECTID": 32,
@@ -210,7 +210,7 @@ var pantry = {
       "id": 35,
       "geometry": {
         "type": "Point",
-        "coordinates": [1374050.1877951622, 1277082.0239809901]
+        "coordinates": [-91.262372159986995, 43.968868602053]
       },
       "properties": {
         "OBJECTID": 35,
@@ -232,7 +232,7 @@ var pantry = {
       "id": 37,
       "geometry": {
         "type": "Point",
-        "coordinates": [1377306.5861379951, 1220599.0654248223]
+        "coordinates": [-91.246749298295995, 43.814630896697999]
       },
       "properties": {
         "OBJECTID": 37,
@@ -254,7 +254,7 @@ var pantry = {
       "id": 38,
       "geometry": {
         "type": "Point",
-        "coordinates": [1387818.1838811636, 1240081.1111063212]
+        "coordinates": [-91.207158887389994, 43.869599878727001]
       },
       "properties": {
         "OBJECTID": 38,
@@ -276,7 +276,7 @@ var pantry = {
       "id": 39,
       "geometry": {
         "type": "Point",
-        "coordinates": [1377115.4083707444, 1215401.9908452407]
+        "coordinates": [-91.246944444444452, 43.799999999999997]
       },
       "properties": {
         "OBJECTID": 39,
@@ -298,7 +298,7 @@ var pantry = {
       "id": 42,
       "geometry": {
         "type": "Point",
-        "coordinates": [1381710.1623045802, 1209351.7476964071]
+        "coordinates": [-91.228333333333339, 43.782499999999999]
       },
       "properties": {
         "OBJECTID": 42,
@@ -313,5 +313,5 @@ var pantry = {
         "X": -91.228333333333339,
         "Y": 43.782499999999999,
         "Match_addr": "1815 Ward Ave, La Crosse, Wisconsin, 54601"
-      },
+      }
     }]}
