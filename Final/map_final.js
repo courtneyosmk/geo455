@@ -28,8 +28,8 @@ var topo = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
 });
 
 var mymap = L.map('map', {
-    center: [43.91,-91.11],
-    zoom: 10,
+    center: [43.89,-91.21],
+    zoom: 12,
     layers: streets,
     });
 
@@ -39,19 +39,14 @@ L.control.scale({position: 'bottomright', maxWidth: '100', metric: 'True'}).addT
 
 //Globe button//
 L.easyButton(('<img src="globe_icon.png", height=85%>'), function(btn, map){
-    map.setView([43.91,-91.11], 10);
+    map.setView([43.89,-91.21], 12);
 }).addTo(mymap);
 
-//Inset Map//
-var miniMap = new L.Control.MiniMap(L.tileLayer('https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=tZnptaeI9RvKHsX18rbW'), {
-            toggleDisplay: true,
-            position: 'bottomright'
-        }).addTo(mymap);
 
 
 // LAYER 1: Food Garden Locations//
 var myIcon = new L.Icon({
-     iconSize: [20, 20],
+     iconSize: [25, 25],
      iconAnchor: [10, 15],
      popupAnchor:  [1, -24],
      iconUrl: 'garden.png'
@@ -70,27 +65,12 @@ var newfood = new L.geoJson(newfood, {
             return marker;
         }}).addTo(mymap);
 
-//Searchbox//
 
-var searchControl = new L.Control.Search({
-    position:'topright',
-    layer: newfood,
-    propertyName: 'USER_Name',
-    marker: false,
-    markeranimate: true,
-    delayType: 30,
-    collapsed: false,
-    textPlaceholder: 'Search by Garden Name: e.g. Aptiv',   
-    moveToLocation: function(latlng, title, map) {
-        mymap.setView(latlng, 15);}
-});
-
-mymap.addControl(searchControl); 
 
 //Layer 2 Food pantries
 
 var pantryicon = new L.Icon({
-     iconSize: [20, 20],
+     iconSize: [25, 25],
      iconAnchor: [10, 15],
      popupAnchor:  [1, -24],
      iconUrl: 'pantry.png'
@@ -110,20 +90,20 @@ var pantry = new L.geoJson(pantry, {
         }}).addTo(mymap);
 
 
-/*//LAYER 3: Choropleth Map of houses w no vehicle//
+//LAYER 3: Choropleth Map of houses w no vehicle//
 
 function getColor(value) {
-    return value > 139 ? '#54278f':
-           value > 87  ? '#756bb1':
-           value > 53  ? '#9e9ac8':
-           value > 32  ? '#cbc9e2':
-                         '#f2f0f7';
+    return value > 29 ? '#006d2c':
+           value > 17  ? '#31a354':
+           value > 10  ? '#74c476':
+           value > 3  ? '#bae4b3':
+                         '#edf8e9';
 }
 
 function style(feature){
     return {
         fillColor: getColor(feature.properties.percent),   // percent is the field name for the population density data
-        weight: 2,
+        weight: 1,
         opacity: 1,
         color: 'gray',
         fillOpacity: 0.9
@@ -133,12 +113,10 @@ function style(feature){
   function highlightFeature(e) {
     var feature = e.target;
 
-
-    // Check out https://leafletjs.com/reference-1.3.4.html#path for more options for changing style
     feature.setStyle({
-        weight: 5,
+        weight: 1.2,
         color: '#666',
-        fillOpacity: 0.7
+        fillOpacity: 0.8
     });
 
 
@@ -165,36 +143,92 @@ function style(feature){
         style: style,
         onEachFeature: onEachFeature
     }).bindPopup(function (layer){
-    return layer.feature.properties.NAME 
-           + '<p style="color:purple">' + layer.feature.properties.percent.toString() + ' percent </p>';       
-}).addTo(mymap);*/
+// Round the percent value to two decimal places
+    var roundedPercent1 = layer.feature.properties.percent.toFixed(2);
+    return layer.feature.properties.NAME + '<p style="color:green">' + roundedPercent1 + ' % </p>';
+}).addTo(mymap);
 
 
 
-/*//LAYER 3: Cluster Map BUS STOPS not going to work//
+// Combine Food Gardens and Food Pantries layers
+var combinedLayer = L.layerGroup([newfood, pantry]);
 
-var clustermarkers = L.markerClusterGroup();
-busstops.features.forEach(function(feature) {
-    clustermarkers.addLayer(L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]]));
-})
+// Search box for Food Gardens and Food Pantries
+var searchControlCombined = new L.Control.Search({
+    position: 'topright',
+    layer: combinedLayer,
+    propertyName: 'USER_Name',
+    marker: false,
+    markeranimate: true,
+    delayType: 30,
+    collapsed: false,
+    textPlaceholder: 'Search Food Locations: e.g. Aptiv',   
+    moveToLocation: function(latlng, title, map) {
+        mymap.setView(latlng, 15);
+    }
+});
 
-mymap.addLayer(clustermarkers);*/
+mymap.addControl(searchControlCombined); 
+
+//LAYER 4: Choropleth Map of below poverty//
+
+function getColor2(value) {
+    return value > 70 ? '#54278f':
+           value > 44  ? '#756bb1':
+           value > 19  ? '#9e9ac8':
+           value > 8  ? '#cbc9e2':
+                         '#f2f0f7';
+}
+
+function style2(feature){
+    return {
+        fillColor: getColor2(feature.properties.percent),   // percent is the field name for the population density data
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: 0.9
+    };
+    }
+
+  function highlightFeature2(e) {
+    var feature = e.target;
+
+    feature.setStyle({
+        weight: 1.2,
+        color: '#666',
+        fillOpacity: 0.8
+    });
 
 
-//Pop-up for showing XY coordinates on map//
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        feature.bringToFront();
+    }
+}
 
-var popup = L.popup();
-            
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent(
-        "You clicked the map at -<br>" + 
-        "<b>long:</b> " + e.latlng.lng + "<br>" + 
-        "<b>lat:</b> " + e.latlng.lat
-    ).openOn(mymap);}
+    function onEachFeature2(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature2, 
+            mouseout: resetHighlight2,    
+        });
+    }
 
-mymap.addEventListener("click", onMapClick);
+
+    var poverty;  
+
+    function resetHighlight2(e) {
+        geojson.resetStyle(e.target);
+    }
+
+    var poverty = L.geoJson(poverty, {
+        style: style2,
+        onEachFeature: onEachFeature2
+    }).bindPopup(function (layer){
+   // Round the percent value to two decimal places
+    var roundedPercent = layer.feature.properties.percent.toFixed(2);
+    return layer.feature.properties.NAME + '<p style="color:purple">' + roundedPercent + ' % </p>';
+}).addTo(mymap);
+
+
 
 //Legend//
 
@@ -207,19 +241,56 @@ var baseLayers = {
 var overlayMaps = {
     "<img src='garden.png' height=16>Food Gardens": newfood,
     "<img src='pantry.png' height=16>Food Pantries": pantry,
-   /* " % of Houses with No Vehicles": vehicle,
-    "<img src='bus.png' height=16> MTU Bus Stops": busstops,
-    */
+    " % of Households with No Vehicles": vehicle,
+    " % of Population Below Poverty Level": poverty,
 };
 
-var legend = L.control.layers(overlayMaps, baseLayers,{collapsed: false}).addTo(mymap);
+var legendall = L.control.layers(baseLayers, overlayMaps, {collapsed: false}).addTo(mymap);
+
+//Legend for Layer 3 and 4//
+
+var legend = L.control({ position: 'topright' });
+
+legend.onAdd = function (mymap) {
+    var div = L.DomUtil.create('div', 'legend'),
+        grades1 = [0, 3, 10, 17, 29],
+        grades2 = [0, 8, 19, 44, 70];
+
+    div.innerHTML = '<b>Legend</b><br>' +
+                    '<b>% of Households With No Vehicle</b><br>';
+    
+    for (var i = 0; i < grades1.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades1[i] + 1) + '"></i>' +
+            grades1[i] + (grades1[i + 1] ? '&ndash;' + grades1[i + 1] + '<br>' : '+');
+    }
+
+    div.innerHTML += '<br><b>% of Population Below Poverty</b><br>';
+
+    for (var j = 0; j < grades2.length; j++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor2(grades2[j] + 1) + '"></i>' +
+            grades2[j] + (grades2[j + 1] ? '&ndash;' + grades2[j + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(mymap);
+
+
+//Inset Map//
+var miniMap = new L.Control.MiniMap(L.tileLayer('https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=tZnptaeI9RvKHsX18rbW'), {
+            toggleDisplay: true,
+            position: 'bottomright'
+        }).addTo(mymap);
 
 
 //Make only one layer show//
 
 newfood.addTo(mymap); 
 mymap.removeLayer(pantry);
-/*mymap.removeLayer (vehicle)
-mymap.removeLayer (busstops)
-*/
+mymap.removeLayer(vehicle)
+mymap.removeLayer(poverty)
+
 

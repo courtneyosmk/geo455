@@ -16,9 +16,10 @@
         
         <script src="leaflet-heat.js"></script>
         <script src="newfood.js"></script> 
-        <script src="busstops.js"></script>
+        <script src="poverty.js"></script>
         <script src="vehicle.js"></script>
         <script src="pantry.js"></script>
+        
 
          <style>
               body {
@@ -37,48 +38,104 @@
                  font-family: "Fredoka", sans-serif;
                 letter-spacing: .04em;
                 padding: 10px 15px;
-                background-color: rgba(255, 255, 255, 0.5);
+                background-color: rgba(168,207,138, 0.9);
                 border: 3px solid black;
                 border-radius: 3px;
                 z-index: 800;
             }
-            #map {
-                position:absolute; 
-                top:0; 
-                bottom:0; 
-                width:100%; 
-                height: 100%; 
-            }
+           
             p {
                 font-family: "Fredoka", "sans-serif";  
                 font-size: 1.25em;
             }
-            #description {
-                position: fixed;
-                bottom: 20px;
-                left: 10px;
-                width: 280px;
-                padding: 0px 15px;
-                background-color: rgba(255, 255, 255, 0.7);
-                border: 1px solid black;
-                border-radius: 3px;
-                z-index: 800;
+               .legend {
+            padding: 6px 8px;
+            line-height: 18px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+           #toggleBtn {
+            position: fixed;
+            top: 80px;
+            left: 50px;
+            padding: 10px 15px;
+            background-color: rgba(210,231,191, 0.9);
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 800;
+        }
+        #map {
+            position:absolute; 
+            top:0; 
+            bottom:0; 
+            width:100%; 
+            height: 100%; 
+        }
+        #description {
+            position: fixed;
+            bottom: 20px;
+            left: 10px;
+            width: 280px;
+            padding: 10px 15px;
+            background-color: rgba(224,219,205, 0.9);
+            border: 1px solid black;
+            border-radius: 3px;
+            z-index: 800;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+        #description.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #description h2 {
+            margin-top: 0;
+        }
+        #description p {
+            font-size: .8em;
+            line-height: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='title'>Food Gardens in La Crosse County</div>
+    <button id="toggleBtn" onclick="toggleDescription()">Hide About the Map</button>
+    <div id='map'></div>
+    <div id="description">
+        <h2>About the Map</h2>
+        <p>Food insecurity rates are rising in the United States, with accessibility becoming a growing concern. In La Crosse county alone, figures suggest 3,000 children are food insecure. 
+            <br>
+            <br>
+            This interactive map shows the community food gardens and food pantries in La Crosse County. You can click on each location and a pop up will show up with some additional information on the site. This web map also has two choropleth layers showing the percentage of households in each census tract with no vehicle, and the other showing the percent of the population below the poverty level. You can click into each census tract to get the exact percent, or you can look at the legend. These two choropleth layers were added to help visualize the socioeconomic factors in the city compared to the locations of these food resources. This map offers valuable insights about socioeconomic factors influencing food access in our community. 
+            <br>
+            <br>
+            Whether you're interested in accessing fresh produce, planning community outreach initiatives, or advocating for food equity, this map serves as a great tool for promoting healthy food access and encouraging community resilience in La Crosse County. </p>
+        <p>Map authored by Courtney Osmek</p>
+    </div>
+
+    <script>
+        function toggleDescription() {
+            var description = document.getElementById("description");
+            description.classList.toggle("hidden");
+            var toggleBtn = document.getElementById("toggleBtn");
+            if (description.classList.contains("hidden")) {
+                toggleBtn.innerText = "Show About the Map";
+            } else {
+                toggleBtn.innerText = "Hide About the Map";
             }
-              #description p {
-                font-size: .8em;
-                line-height: 1.5em;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <div id='title'>Food Gardens in La Crosse County</div>
-        <div id='map'></div>
-         <div id="description">
-         <h2>About the Map</h2>
-            <p>Food insecurity rates are rising in the United States, with accessibility becoming a growing concern. In La Crosse county alone, figures suggest 3,000 children are food insecure. This interactive map shows the community food gardens in La Crosse County as well as the MTU bus stop locations that citizens can use to get to these food gardens. It also has a layer showing the percentage of households in each census tract with no vehicle. This map offers valuable insights into transportation accessibility and a socioeconomic factor influencing food access in our community. Whether you're interested in accessing fresh produce, planning community outreach initiatives, or advocating for food equity, this map serves as a great tool for promoting healthy food access and encouraging community resilience in La Crosse County. </p>
-          <p>Map authored by Courtney Osmek</p>
-      </div>
-            <script src="map_final.js"></script>
-    </body>
+        }
+    </script>
+    <script src="map_final.js"></script>
+</body>
 </html>
